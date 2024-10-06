@@ -43,12 +43,11 @@ A Student Database Management System built with Node.js, Express.js, Mongoose, a
 
 2.Installing dependenices:
 
-  make sure node js is installed in your local storage
   ```bash
   npm install express mongoose nodemon nodemailer
 
 3.Edit things:
-   ```bash
+  ```bash
   *nodemailer configuration
   *port number
   *mongodb connection URL
