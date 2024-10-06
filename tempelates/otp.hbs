@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  <section>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+    <div class="signin">
+      <div class="content">
+        <h2>OTP Authentication</h2>
+        <form action="/otp" method="POST" class="form">
+          <div class="inputBox">
+            <input type="text" name="email" value="{{email}}" required>
+            <i>Email</i>
+          </div>
+          <div class="inputBox">
+        <button type="submit" value="otpauth" 
+        style="
+        background-color: #39F739; 
+        color: #000000; 
+        border: none; 
+        padding: 12px 24px; 
+        font-size: 18px; 
+        font-weight: bold; 
+        text-transform: uppercase; 
+        border-radius: 5px; 
+        box-shadow: 0px 0px 15px rgba(57, 247, 57, 0.8); 
+        cursor: pointer; 
+        transition: all 0.3s ease;
+    " 
+    onmouseover="this.style.backgroundColor='#28c728';this.style.boxShadow='0px 0px 20px rgba(57, 247, 57, 1)';" 
+    onmouseout="this.style.backgroundColor='#39F739';this.style.boxShadow='0px 0px 15px rgba(57, 247, 57, 0.8)';"
+    onmousedown="this.style.transform='scale(0.98)';" 
+    onmouseup="this.style.transform='scale(1)';"
+>
+    Send OTP
+</button>
+<br>
+<p style="color:white">{{msg}}</p>
+          </div>
+          <div class="inputBox">
+            <input type="text" name="otp">
+            <i>OTP</i>
+          </div>
+          <p style="color: antiquewhite;">{{msg1}}</p>
+          <div class="links">
+            <a href="/">signin</a>
+            <a href="/signup">Signup</a>
+          </div>
+          <div class="inputBox">
+            <input type="submit" formaction="/verifyotp" value="Verifyotp">
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

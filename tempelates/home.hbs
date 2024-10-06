@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Database Management</title>
+    <!-- Font Awesome for profile icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/stud.css">
+</head>
+<body>
+    <div class="header">
+    <h2>Welcome Back {{naming}}</h2>
+    </div>
+    <h1>Student Database Management</h1>
+
+    <!-- Profile Icon with Click Dropdown -->
+    <div class="profile-container">
+        <div class="dropdown">
+            <button id="profileButton" class="dropbtn">
+                <i class="fas fa-user-circle" style="font-size: 30px;"></i>
+            </button>
+            <div id="dropdownContent" class="dropdown-content">
+                <a href="#">User:{{naming}}</a>
+                <a href="/logout">Logout 🔐</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="form-container">
+        <form id="searchForm" action="/search" method="get">
+            <input type="text" id="search" name="search" placeholder="Search by name" required>
+            <button type="submit">Search</button>
+        </form>
+
+        <!-- Show All Records Button -->
+        <form id="showAllForm" action="/login" method="get">
+            <button type="submit">Show All Records</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <div class="form-container">
+            <form id="studentForm" action="/addstud" method="post">
+                <input type="text" id="name" name="name" placeholder="Name" required>
+                <input type="number" id="age" name="age" placeholder="Age" required>
+                <input type="text" id="dept" name="dept" placeholder="Department" required>
+                <input type="text" id="section" name="section" placeholder="Section" required>
+                <button type="submit">Add Student</button>
+            </form>
+        </div>
+
+        <table id="studentsTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Department</th>
+                    <th>Section</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each students}}
+                <tr>
+                    <td>{{this.Name}}</td>
+                    <td>{{this.age}}</td>
+                    <td>{{this.dept}}</td>
+                    <td>{{this.section}}</td>
+                    <td class="actions">
+                        <form action="/deletestud/{{this._id}}" method="post">
+                            <button type="submit">Delete</button>
+                        </form>
+                        <button onclick="editStudent('{{this._id}}', '{{this.Name}}', {{this.age}}, '{{this.dept}}', '{{this.section}}')">Edit</button>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Toggle the dropdown when the profile button is clicked
+        document.getElementById("profileButton").addEventListener("click", function() {
+            const dropdownContent = document.getElementById("dropdownContent");
+            dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
+        });
+
+        // Hide dropdown if clicked outside
+        window.addEventListener("click", function(event) {
+            if (!event.target.matches('.dropbtn') && !event.target.matches('.fas')) {
+                const dropdownContent = document.getElementById("dropdownContent");
+                if (dropdownContent.style.display === "block") {
+                    dropdownContent.style.display = "none";
+                }
+            }
+        });
+
+        function editStudent(id, name, age, dept, section) {
+            document.getElementById("name").value = name;
+            document.getElementById("age").value = age;
+            document.getElementById("dept").value = dept;
+            document.getElementById("section").value = section;
+
+            const form = document.getElementById("studentForm");
+            form.action = `/editstud/${id}`;  // Change form action to edit student
+            form.method = "post";
+        }
+    </script>
+</body>
+</html>
